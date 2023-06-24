@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:badges/badges.dart' as badges;
@@ -68,18 +69,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                      child: Text('Increase'),
                       onPressed: () => increaseCount(0),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.green,
+                        backgroundColor: Colors.green,
                       ),
+                      child: const Text('Increase', style: TextStyle(fontSize: 20),),
                     ),
                     SizedBox(height: 16),
                     ElevatedButton(
-                      child: Text('Decrease'),
+                      child: Text('Decrease',style: TextStyle(fontSize: 20),),
                       onPressed: () => decreaseCount(0),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.red,
+                        backgroundColor: Colors.red,
                       ),
                     ),
                   ],
@@ -101,18 +102,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                      child: Text('Increase'),
+                      child: Text('Increase',style: TextStyle(fontSize: 20),),
                       onPressed: () => increaseCount(1),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.green,
+                        backgroundColor: Colors.green,
                       ),
                     ),
                     SizedBox(height: 16),
                     ElevatedButton(
-                      child: Text('Decrease'),
+                      child: Text('Decrease',style: TextStyle(fontSize: 20),),
                       onPressed: () => decreaseCount(1),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.red,
+                        backgroundColor: Colors.red,
                       ),
                     ),
                   ],
@@ -134,18 +135,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                      child: Text('Increase'),
+                      child: Text('Increase',style: TextStyle(fontSize: 20),),
                       onPressed: () => increaseCount(2),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.green,
+                        backgroundColor: Colors.green,
                       ),
                     ),
                     SizedBox(height: 16),
                     ElevatedButton(
-                      child: Text('Decrease'),
+                      child: Text('Decrease',style: TextStyle(fontSize: 20),),
                       onPressed: () => decreaseCount(2),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.red,
+                        backgroundColor: Colors.red,
                       ),
                     ),
                   ],
@@ -158,9 +159,13 @@ class _MyHomePageState extends State<MyHomePage> {
       items: [
         PersistentBottomNavBarItem(
           icon: badges.Badge(
-            badgeContent: Text(
-              notificationsCount.toString(),
-              style: TextStyle(fontSize: 8, color: Colors.white),
+            badgeContent: Container( height: 10,width: 14,
+              child: Center(
+                child: AutoSizeText(
+                  notificationsCount.toString(), maxLines:1 ,minFontSize: 7,
+                  style: TextStyle(fontSize: 8, color: Colors.white),
+                ),
+              ),
             ),
             badgeAnimation: const badges.BadgeAnimation.fade(
               animationDuration: Duration(microseconds: 100),
@@ -177,11 +182,14 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         PersistentBottomNavBarItem(
           icon: badges.Badge(
-            badgeContent: Text(
-              cartCount.toString(),
-              style: TextStyle(fontSize: 8, color: Colors.white),
+            badgeContent: Container( height: 10,width: 14,
+              child: Center(
+                child: AutoSizeText(
+                  cartCount.toString(), maxLines:1 ,minFontSize: 7,
+                  style: TextStyle(fontSize: 8, color: Colors.white),
+                ),
+              ),
             ),
-            position: badges.BadgePosition.topEnd(),
             badgeAnimation: const badges.BadgeAnimation.fade(
               animationDuration: Duration(microseconds: 100),
               colorChangeAnimationDuration: Duration(microseconds: 100),
@@ -197,9 +205,13 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         PersistentBottomNavBarItem(
           icon: badges.Badge(
-            badgeContent: Text(
-              favoritesCount.toString(),
-              style: TextStyle(fontSize: 8, color: Colors.white),
+            badgeContent: Container( height: 10,width: 14,
+              child: Center(
+                child: AutoSizeText(
+                  favoritesCount.toString(), maxLines:1 ,minFontSize: 7,
+                  style: TextStyle(fontSize: 8, color: Colors.white),
+                ),
+              ),
             ),
             badgeAnimation: const badges.BadgeAnimation.fade(
               animationDuration: Duration(microseconds: 100),
